@@ -1,0 +1,50 @@
+#include <iostream>
+using namespace std;
+
+short isValidDate(short dd, short mm, short yy)
+{
+    if (yy < 0)
+        return 1;
+    if (mm < 0 || mm > 12)
+        return 1;
+    if(mm == 2){
+        if( yy % 4 == 0)
+        {
+            if(dd > 29 || dd < 0)
+                return 1;
+        }
+        else
+        {
+            if( dd > 28 || dd <0)
+                return 1;
+        }
+}
+else if(mm == 1 || mm == 3 || mm == 5 || mm == 7
+    || mm == 8 || mm == 10 || mm == 12)
+    {
+        if (dd > 31 || dd <0)
+            return 1;
+    }
+else
+    {
+    if(dd > 30 || dd < 0)
+        return 1;
+    }
+    return 0;
+}
+
+int main(){
+    int ret = 0;
+    ret = isValidDate(5,8,20);
+    if(ret == 0)
+        cout << "Date is valid\n";
+    else
+        cout << "Date is not valid\n";
+    ret = isValidDate(15,15,20);
+    if(ret == 0)
+        cout << "Date is valid\n";
+    else
+        cout << "Date is not valid\n";
+
+    return 0;
+}
